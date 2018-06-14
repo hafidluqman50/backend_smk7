@@ -17,5 +17,6 @@
 $router->post('/login',['as'=>'login-post','uses'=>'AuthController@auth']);
 $router->group(['prefix'=>'api','middleware'=>'cros'],function() use ($router){
 	$router->get('/barang','BarangController@barang');
+	$router->get('/smkkonten','SmkKontenController@index');
 	$router->get('/get-user','AuthController@getUser');
 });
