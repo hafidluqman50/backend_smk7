@@ -304,7 +304,7 @@ $(function () {
 						if (el.gambar == '') {
 							gambar = 'assets/img/no-image-light.png';
 						} else {
-							gambar = 'assets/img/no-image-light.png';
+							gambar = apiBaseUrl+'uploads/konten/'+el.gambar;
 						}
 						if (el.tipe_konten == 'berita') {
 							if (numBerita < 4) {
@@ -480,7 +480,6 @@ $(function () {
 				data: {'id': data},
 			})
 			.done(function(data) {
-				console.log(data);
 				$('#berita-content > .header > .section-sub-title').text(data[0].judul);
 				$('#berita-content > .header > p:nth-of-type(1)').text("Dibuat oleh "+data[0].penulis);
 				var tglIndo = dateIndo((data[0].waktu_ubah == "0000-00-00 00:00:00") ? data[0].waktu_buat : data[0].waktu_ubah);
@@ -490,6 +489,28 @@ $(function () {
 				$('#berita-content > .link-share > .facebook').attr('href', 'http://www.facebook.com/sharer.php?u='+window.location.href);
 				$('#berita-content > .link-share > .twitter').attr('href', 'https://twitter.com/share?url='+window.location.href);
 				$('#berita-content > .link-share > .gplus').attr('href', 'https://plus.google.com/share?url='+window.location.href);
+			})
+			.fail(function(fail) {
+				console.log(fail);
+			});
+
+			$.ajax({
+				url: apiBaseUrl+'smk/getkontenpopuler/',
+				type: 'GET',
+			})
+			.done(function(berita) {
+				$.each(berita, function(index, el) {
+					if (el.gambar == '') {
+						gambar = 'assets/img/no-image-dark.png';
+					} else {
+						gambar = apiBaseUrl+'uploads/konten/'+el.gambar;
+					}
+					gambar = '<img alt="..." src="'+gambar+'" />';
+					var judul = (el.judul.substr(0, 45).length == 45) ? el.judul.substr(0, 45)+'...' : el.judul;
+					judul = '<a href="./berita-lebih.html?id='+el.id+'">'+judul+'</a>';
+					var htmlPopuler = '<div class="column"><div class="card"><div class="img">'+gambar+'</div><div class="title">'+judul+'</div></div></div>';
+					$('#berita-populer .columns').append(htmlPopuler);
+				});
 			})
 			.fail(function(fail) {
 				console.log(fail);

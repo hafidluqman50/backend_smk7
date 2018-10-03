@@ -12,6 +12,11 @@ class SmkKontenController extends Controller {
 		return response()->json($barang->all(),201);
 	}
 
+	public function populer() {
+		$barang = new SmkKontenModel;
+		return response()->json($barang->orderBy('dilihat', 'desc')->limit(5)->get(),201);
+	}
+
 	public function detail(Request $request) {
 		$barang = new SmkKontenModel;
 		$id = $request->input('id');

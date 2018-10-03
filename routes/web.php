@@ -19,6 +19,7 @@ $router->group(['prefix'=>'smk','middleware'=>'cros'],function() use ($router){
 
 	$router->get('/getkonten','SmkKontenController@index');
 	$router->post('/getkontendetail','SmkKontenController@detail');
+	$router->get('/getkontenpopuler','SmkKontenController@populer');
 	$router->post('/inputkonten','SmkKontenController@input');
 
 	$router->get('/getprofil','SmkProfilController@index');
