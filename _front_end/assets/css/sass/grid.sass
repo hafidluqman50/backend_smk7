@@ -1,0 +1,204 @@
+body
+	margin: 0
+	*
+		box-sizing: border-box
+	.columns
+		display: flex
+		&.hidden
+			display: none
+			+tablet
+				display: none
+			+desktop
+				display: none
+			+widescreen
+				display: none
+		&.mobile-hidden
+			display: none
+			+tablet
+				display: flex
+			+desktop
+				display: flex
+			+widescreen
+				display: flex
+		&.tablet-hidden
+			display: flex
+			+tablet
+				display: none
+			+desktop
+				display: flex
+			+widescreen
+				display: flex
+		&.desktop-hidden
+			display: flex
+			+tablet
+				display: flex
+			+desktop
+				display: none
+			+widescreen
+				display: flex
+		&.widescreen-hidden
+			display: flex
+			+tablet
+				display: flex
+			+desktop
+				display: flex
+			+widescreen
+				display: none
+		&.mobile-show
+			display: flex
+			+tablet
+				display: none
+			+desktop
+				display: none
+			+widescreen
+				display: none
+		&.tablet-show
+			display: none
+			+tablet
+				display: flex
+			+desktop
+				display: none
+			+widescreen
+				display: none
+		&.desktop-show
+			display: none
+			+tablet
+				display: none
+			+desktop
+				display: flex
+			+widescreen
+				display: none
+		&.widescreen-show
+			display: none
+			+tablet
+				display: none
+			+desktop
+				display: none
+			+widescreen
+				display: flex
+		&.multiline
+			flex-wrap: wrap
+		&.centered
+			justify-content: center
+		&.started
+			justify-content: flex-start
+		&.spread-h
+			justify-content: space-between
+		&.middled
+			align-items: center
+		&.padded
+			> .column
+				padding: 20px
+		&.padded-small
+			> .column
+				padding: 2px
+		&.padded-not-mobile
+			> .column
+				padding: 0px
+				+tablet
+					padding: 20px
+		&.padded-small-not-mobile
+			> .column
+				padding: 0px
+				+tablet
+					padding: 2px
+		> .column
+			width: 100%
+			@for $i from 0 through $column
+				&.mobile-#{$i}
+					width: ($i / $column) * 100%
+			+tablet
+				@for $i from 0 through $column
+					&.tablet-#{$i}
+						width: ($i / $column) * 100%
+			+desktop
+				@for $i from 0 through $column
+					&.desktop-#{$i}
+						width: ($i / $column) * 100%
+			+widescreen
+				@for $i from 0 through $column
+					&.widescreen-#{$i}
+						width: ($i / $column) * 100%
+			&.grow
+				flex-grow: 1
+@for $i from 0 through 4
+	.margin-top-#{$i}
+		margin-top: ($i * 0.5vh) !important
++tablet
+	@for $i from 0 through $column
+		.margin-top-#{$i}
+			margin-top: ($i * 0.8vh) !important
++desktop
+	@for $i from 0 through $column
+		.margin-top-#{$i}
+			margin-top: ($i * 1vh) !important
++widescreen
+	@for $i from 0 through $column
+		.margin-top-#{$i}
+			margin-top: ($i * 1.4vh) !important
+.hidden
+	display: none
+.mobile-hidden
+	display: none
+	+tablet
+		display: initial
+	+desktop
+		display: initial
+	+widescreen
+		display: initial
+.tablet-hidden
+	display: initial
+	+tablet
+		display: none
+	+desktop
+		display: initial
+	+widescreen
+		display: initial
+.desktop-hidden
+	display: initial
+	+tablet
+		display: initial
+	+desktop
+		display: none
+	+widescreen
+		display: initial
+.widescreen-hidden
+	display: initial
+	+tablet
+		display: initial
+	+desktop
+		display: initial
+	+widescreen
+		display: none
+.mobile-show
+	display: initial
+	+tablet
+		display: none
+	+desktop
+		display: none
+	+widescreen
+		display: none
+.tablet-show
+	display: none
+	+tablet
+		display: initial
+	+desktop
+		display: none
+	+widescreen
+		display: none
+.desktop-show
+	display: none
+	+tablet
+		display: none
+	+desktop
+		display: initial
+	+widescreen
+		display: none
+.widescreen-show
+	display: none
+	+tablet
+		display: none
+	+desktop
+		display: none
+	+widescreen
+		display: initial

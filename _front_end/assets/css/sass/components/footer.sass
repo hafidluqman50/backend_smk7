@@ -1,0 +1,64 @@
+body
+	footer
+		background: $dark-darken
+		.copyright
+			padding: 20px 0
+			color: $grey
+			font-size: 10pt
+			+tablet
+				font-size: 11pt
+		.footer-content
+			&:nth-of-type(1)
+				p
+					margin: 0
+					> img
+						height: 65px
+						&:not(.small)
+							padding: 10px
+				> .columns
+					> .column
+						border-bottom: 1px solid $blue-darken
+						&:last-child
+							border: none
+			&:nth-of-type(2)
+				p
+					margin: 0
+					> img
+						height: 20px
+						display: block
+						margin-left: auto
+						margin-right: auto
+			&:nth-of-type(3)
+				a
+					> img
+						height: 60px
+					+desktop
+						> img
+							filter: grayscale(100%)
+							transition: $transition
+							&:hover
+								filter: grayscale(0)
+			+tablet
+				&:nth-of-type(1)
+					padding-right: 10px
+				&:nth-of-type(2)
+					padding-left: 10px
+			+desktop
+				&:nth-of-type(2)
+					padding-right: 10px
+				&:nth-of-type(3)
+					padding-left: 10px
+			> .columns
+				> .column
+					padding: 10px 0
+			a
+				text-decoration: none
+				&:hover
+					text-decoration: underline
+				p
+					color: $light-darken
+					text-align: left
+					margin: 0
+					font-size: 11pt
+					+tablet
+						font-size: 12pt

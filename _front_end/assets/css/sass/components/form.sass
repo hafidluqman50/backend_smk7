@@ -1,0 +1,33 @@
+@charset "UTF-8"
+
+body
+	.form-input
+		display: flex
+		> input
+			width: 100%
+			padding: 2px 5px
+			font-size: 14pt
+		> textarea
+			width: 100%
+			min-width: 100%
+			padding: 2px 5px
+			font-size: 14pt
+		&.icon-left
+			> span
+				font-size: 14pt
+				width: 40px
+				padding: 5px 0
+				background: $dark-darken
+				color: $light
+		&.large
+			> input
+				padding: 6px 10px
+				font-size: 17pt
+			&.icon-left
+				> span
+					font-size: 16pt
+					width: 50px
+					padding: 8px 0
+		&.centered
+			> input
+				text-align: center

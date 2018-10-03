@@ -1,0 +1,43 @@
+body
+	header
+		height: 84vh
+		background: linear-gradient(rgba($light, 0.3), rgba($light, 0.3)), url(../img/bg.jpg) fixed
+		background-size: cover
+		display: flex
+		flex-wrap: wrap
+		align-content: center
+		justify-content: center
+		> *
+			z-index: 1 
+			&:not(img)
+				margin: 5px
+				padding: 0
+				width: 100%
+				text-align: center
+				&.title
+					font-size: 27pt
+					font-weight: bold
+					color: $blue
+					+tablet
+						font-size: 33pt
+					span
+						padding: 10px
+						color: $light
+						background: $blue
+				&.sub-title
+					font-size: 20pt
+					color: $dark
+			&.background
+				z-index: 0 
+				margin: 0
+				padding: 0
+				position: absolute
+				width: 100%
+				background: transparent
+				height: 100%
+				display: none
+				+tablet
+					display: block
+		> img
+			margin: 1vh 0
+			max-height: 25vh

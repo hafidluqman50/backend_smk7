@@ -15,8 +15,14 @@
 //     return $router->app->version();
 // });
 $router->post('/login',['as'=>'login-post','uses'=>'AuthController@auth']);
-$router->group(['prefix'=>'api','middleware'=>'cros'],function() use ($router){
-	$router->get('/barang','BarangController@barang');
-	$router->get('/smkkonten','SmkKontenController@index');
-	$router->get('/get-user','AuthController@getUser');
+$router->group(['prefix'=>'smk','middleware'=>'cros'],function() use ($router){
+
+	$router->get('/getkonten','SmkKontenController@index');
+	$router->post('/getkontendetail','SmkKontenController@detail');
+	$router->post('/inputkonten','SmkKontenController@input');
+
+	$router->get('/getprofil','SmkProfilController@index');
+	
+});
+$router->group(['prefix'=>'input','middleware'=>'cros'],function() use ($router){
 });

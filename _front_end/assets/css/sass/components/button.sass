@@ -1,0 +1,274 @@
+body
+	.button
+		width: 100%
+		background: $light
+		border: 2px solid $grey-darken
+		transition: $transition
+		outline: none
+		color: $grey-darken
+		cursor: pointer
+		&.medium
+			padding: 5px
+			font-size: 15px
+		&.large
+			padding: 9px
+			font-size: 18px
+		&.active
+			background: $grey
+			border-color: $grey
+			color: $light
+		&:active
+			background: $grey
+			border-color: $grey
+			color: $light
+		+desktop
+			&:hover
+				background: $grey
+				border-color: $grey
+				color: $light
+		&.hexa
+			height: 60px
+			clip-path: polygon(50% 0, calc(50% + 26px) calc(50% - 15.33px), calc(50% + 26px) calc(50% + 15.33px), 50% 100%,calc(50% - 26px) calc(50% + 15.33px), calc(50% - 26px) calc(50% - 15.33px))
+			background: $grey
+			color: $light
+			font-size: 23px
+			border: none
+			+desktop
+				height: 90px
+				clip-path: polygon(50% 0, calc(50% + 39px) calc(50% - 23px), calc(50% + 39px) calc(50% + 23px), 50% 100%,calc(50% - 39px) calc(50% + 23px), calc(50% - 39px) calc(50% - 23px))
+				font-size: 30px
+			&.active
+				background: $grey-darken
+				color: $light
+			&:active
+				background: $grey-darken
+				color: $light
+			+desktop
+				&:hover:not(.active)
+					background: $grey-darken
+					color: $light
+			&.orange
+				background: $orange
+				color: $light
+				&.active
+					background: $grey-darken
+					color: $light
+				&:active
+					background: $grey-darken
+					color: $light
+				+desktop
+					&:hover:not(.active)
+						background: $orange-darken
+						color: $light
+			&.red
+				background: $red
+				color: $light
+				&.active
+					background: $grey-darken
+					color: $light
+				&:active
+					background: $grey-darken
+					color: $light
+				+desktop
+					&:hover:not(.active)
+						background: $red-darken
+						color: $light
+			&.blue
+				background: $blue
+				color: $light
+				&.active
+					background: $grey-darken
+					color: $light
+				&:active
+					background: $grey-darken
+					color: $light
+				+desktop
+					&:hover:not(.active)
+						background: $blue-darken
+						color: $light
+			&.green
+				background: $green
+				color: $light
+				&.active
+					background: $grey-darken
+					color: $light
+				&:active
+					background: $grey-darken
+					color: $light
+				+desktop
+					&:hover:not(.active)
+						background: $green-darken
+						color: $light
+			&.dark
+				background: $dark
+				color: $light
+				&.active
+					background: $grey-darken
+					color: $light
+				&:active
+					background: $grey-darken
+					color: $light
+				+desktop
+					&:hover:not(.active)
+						background: $dark-darken
+						color: $light
+		&.orange
+			border-color: $orange-darken
+			color: $orange-darken
+			&.active
+				background: $orange
+				border-color: $orange
+				color: $light
+			&:active
+				background: $orange
+				border-color: $orange
+				color: $light
+			+desktop
+				&:hover
+					background: $orange
+					border-color: $orange
+					color: $light
+		&.orange-darken
+			border-color: $orange-darken
+			color: $orange-darken
+			&.active
+				background: $orange-darken
+				border-color: $orange-darken
+				color: $light
+			&:active
+				background: $orange-darken
+				border-color: $orange-darken
+				color: $light
+			+desktop
+				&:hover
+					background: $orange-darken
+					border-color: $orange-darken
+					color: $light
+		&.red
+			border-color: $red-darken
+			color: $red-darken
+			&.active
+				background: $red
+				border-color: $red
+				color: $light
+			&:active
+				background: $red
+				border-color: $red
+				color: $light
+			+desktop
+				&:hover
+					background: $red
+					border-color: $red
+					color: $light
+		&.red-darken
+			border-color: $red-darken
+			color: $red-darken
+			&.active
+				background: $red-darken
+				border-color: $red-darken
+				color: $light
+			&:active
+				background: $red-darken
+				border-color: $red-darken
+				color: $light
+			+desktop
+				&:hover
+					background: $red-darken
+					border-color: $red-darken
+					color: $light
+		&.blue
+			border-color: $blue-darken
+			color: $blue-darken
+			&.active
+				background: $blue
+				border-color: $blue
+				color: $light
+			&:active
+				background: $blue
+				border-color: $blue
+				color: $light
+			+desktop
+				&:hover
+					background: $blue
+					border-color: $blue
+					color: $light
+		&.blue-darken
+			border-color: $blue-darken
+			color: $blue-darken
+			&.active
+				background: $blue-darken
+				border-color: $blue-darken
+				color: $light
+			&:active
+				background: $blue-darken
+				border-color: $blue-darken
+				color: $light
+			+desktop
+				&:hover
+					background: $blue-darken
+					border-color: $blue-darken
+					color: $light
+		&.green
+			border-color: $green-darken
+			color: $green-darken
+			&.active
+				background: $green
+				border-color: $green
+				color: $light
+			&:active
+				background: $green
+				border-color: $green
+				color: $light
+			+desktop
+				&:hover
+					background: $green
+					border-color: $green
+					color: $light
+		&.green-darken
+			border-color: $green-darken
+			color: $green-darken
+			&.active
+				background: $green-darken
+				border-color: $green-darken
+				color: $light
+			&:active
+				background: $green-darken
+				border-color: $green-darken
+				color: $light
+			+desktop
+				&:hover
+					background: $green-darken
+					border-color: $green-darken
+					color: $light
+		&.dark
+			border-color: $dark-darken
+			color: $dark-darken
+			&.active
+				background: $dark
+				border-color: $dark
+				color: $light
+			&:active
+				background: $dark
+				border-color: $dark
+				color: $light
+			+desktop
+				&:hover
+					background: $dark
+					border-color: $dark
+					color: $light
+		&.dark-darken
+			border-color: $dark-darken
+			color: $dark-darken
+			&.active
+				background: $dark-darken
+				border-color: $dark-darken
+				color: $light
+			&:active
+				background: $dark-darken
+				border-color: $dark-darken
+				color: $light
+			+desktop
+				&:hover
+					background: $dark-darken
+					border-color: $dark-darken
+					color: $light
