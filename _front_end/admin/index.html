@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="author" content="Vicky Priyadi" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+	<meta name="title" content="beranda" />
+	<link rel="apple-touch-icon" sizes="57x57" href="./../assets/img/favicon/apple-icon-57x57.png" />
+	<link rel="apple-touch-icon" sizes="60x60" href="./../assets/img/favicon/apple-icon-60x60.png" />
+	<link rel="apple-touch-icon" sizes="72x72" href="./../assets/img/favicon/apple-icon-72x72.png" />
+	<link rel="apple-touch-icon" sizes="76x76" href="./../assets/img/favicon/apple-icon-76x76.png" />
+	<link rel="apple-touch-icon" sizes="114x114" href="./../assets/img/favicon/apple-icon-114x114.png" />
+	<link rel="apple-touch-icon" sizes="120x120" href="./../assets/img/favicon/apple-icon-120x120.png" />
+	<link rel="apple-touch-icon" sizes="144x144" href="./../assets/img/favicon/apple-icon-144x144.png" />
+	<link rel="apple-touch-icon" sizes="152x152" href="./../assets/img/favicon/apple-icon-152x152.png" />
+	<link rel="apple-touch-icon" sizes="180x180" href="./../assets/img/favicon/apple-icon-180x180.png" />
+	<link rel="icon" type="image/png" sizes="192x192"  href="./../assets/img/favicon/android-icon-192x192.png" />
+	<link rel="icon" type="image/png" sizes="32x32" href="./../assets/img/favicon/favicon-32x32.png" />
+	<link rel="icon" type="image/png" sizes="96x96" href="./../assets/img/favicon/favicon-96x96.png" />
+	<link rel="icon" type="image/png" sizes="16x16" href="./../assets/img/favicon/favicon-16x16.png" />
+	<link rel="manifest" href="./../assets/img/favicon/manifest.json" />
+	<meta name="msapplication-TileColor" content="#ffffff" />
+	<meta name="msapplication-TileImage" content="./../assets/img/favicon/ms-icon-144x144.png" />
+	<meta name="theme-color" content="#ffffff" />
+	<title>Login | Admin</title>
+	<link rel="stylesheet" type="text/css" href="./../assets/css/fontawesome-all.min.css" />
+	<link rel="stylesheet" type="text/css" href="./../assets/css/admin.css" />
+	<script src="./../assets/js/jquery-3.2.1.min.js" type="text/javascript"></script>
+	<script src="./../assets/js/tether.min.js" type="text/javascript"></script>
+</head>
+<body id="login">
+
+<main class="column is-full-mobile is-full-tablet is-full-desktop main">
+	<div class="columns is-multiline">
+		<div class="column is-full-mobile is-two-thirds-tablet is-half-desktop is-offset-2-tablet is-offset-3-desktop">
+			<div class="box">
+				<div class="media">
+					<div class="media-content">
+						<div class="content">
+							<form class="form" id="login-form">
+								<div class="columns is-multiline">
+									<div class="column is-full-mobile is-full-tablet has-text-centered">
+										<div class="columns is-multiline brand">
+											<div class="column is-full-mobile is-full-tablet">
+												<h1>Admin SMK Negeri 7</h1>
+											</div>
+										</div>
+									</div>
+									<hr>
+									<div class="column is-full-mobile is-full-tablet">
+										<div class="field testttt">
+											<label class="label">Username</label>
+											<p class="control">
+												<input name="username" class="input" type="text" placeholder="Username" minlength="1" maxlength="20" required="required" autofocus="autofocus">
+											</p>
+										</div>
+										<div class="field">
+											<label class="label">Password</label>
+											<p class="control">
+												<input name="password" class="input" type="password" placeholder="Password" minlength="1" required="required">
+											</p>
+										</div>
+									</div>
+									<div class="column is-full-mobile is-full-tablet has-text-centered">
+										<button class="button is-primary is-medium is-inverted is-full-width" type="submit">Login</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</main>
+<script type="text/javascript">
+	$(function () {
+		const apiBaseUrl = "http://localhost:8000/";
+
+		$(document).on('submit', '#login-form', function(event) {
+			event.preventDefault();
+			var username = $('input[name=username]').val();
+			var password = $('input[name=password]').val();
+			$.post(apiBaseUrl+'login', {username: username, password: password}, function(data, textStatus, xhr) {
+				/*optional stuff to do after success */
+			});
+		});
+	})
+</script>
+</body>
+</html>

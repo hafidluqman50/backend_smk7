@@ -1,0 +1,54 @@
+body
+	margin: 0
+	padding: 0
+	font-size: 11pt
+	nav
+		&.header
+			display: none
+	aside
+		&.sidebar
+			display: none
+	main
+		&.main
+			display: none
+	footer
+		&.footer
+			display: none
+	section
+		&.print-hasil
+			display: initial
+			.header
+				position: relative
+				border-bottom: 2px solid $dark
+				padding-bottom: 10px
+				img
+					position: absolute
+					width: 75pt
+					top: 0
+					left: 25pt
+				h1.page-title
+					margin: 0
+					padding: 0
+					font-size: 22pt
+					line-height: 25pt
+					text-align: center
+			.content
+				margin-top: 20pt
+				p.title
+					font-size: 18pt
+			.footer
+				.ttd
+					float: right
+					width: 35%
+					p.nama
+						margin-top: 60pt
+				.ttd2
+					float: left
+					width: 35%
+					p.nama
+						margin-top: 60pt
+				&:after
+					clear: both
+			.page-break
+				display: block
+				page-break-before: always

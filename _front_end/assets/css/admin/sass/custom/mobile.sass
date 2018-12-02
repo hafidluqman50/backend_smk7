@@ -1,0 +1,110 @@
+body
+	&#login
+		position: relative
+	section
+		&.print-hasil
+			display: none
+	nav
+		&.header
+			position: fixed
+			width: 100%
+			z-index: 1000
+	aside
+		&.sidebar
+			background: $light
+			display: none
+			position: fixed
+			height: 100%
+			box-shadow: 2px 0px 3px rgba($black, 0.1)
+			padding-top: 3.6rem
+			z-index: 999
+			.profile-img
+				text-align: center
+				img
+					box-shadow: 2px 0px 3px rgba($black, 0.1)
+					max-width: 50%
+					max-height: 100px
+	main
+		&.main
+			transition: all 0.2s
+			padding-top: 3.6rem
+			padding-left: 0
+			padding-right: 0
+			padding-bottom: 0
+			margin-bottom: 0
+			footer
+				.container
+					width: 100%
+			#data-siswa
+				.form-data
+					display: none
+				.import-data
+					display: none
+				.img-height-200
+					max-height: 200px
+			#js-alert
+				display: none
+			#form-penilaian
+				display: none
+				.column
+					> h1
+						font-size: 25px
+					> img
+						max-width: 50%
+	.is-full-width
+		width: 100%
+	.overflow-x-auto
+		overflow-x: auto
+	.modal
+		z-index: 2000
+	.switch
+		position: relative
+		display: inline-block
+		width: 60px
+		height: 34px
+		input
+			display: none
+			&:checked
+				.slider
+					background-color: $primary
+					&:before
+						transform: translateX(26px)
+			&:focus
+				.slider
+					box-shadow: 0 0 1px $primary
+		.slider
+			position: absolute
+			cursor: pointer
+			top: 0
+			left: 0
+			right: 0
+			bottom: 0
+			background-color: #ccc
+			-webkit-transition: .4s
+			transition: 0.2s
+			&:before
+				position: absolute
+				content: ""
+				height: 26px
+				width: 26px
+				left: 4px
+				bottom: 4px
+				background-color: white
+				-webkit-transition: .4s
+				transition: 0.2s
+			&.round
+				border-radius: 34px
+				&:before
+					border-radius: 50%
+canvas
+	-moz-user-select: none
+	-webkit-user-select: none
+	-ms-user-select: none
+#kriteria_chart-tablet
+	display: none !important
+#sub_chart-tablet
+	display: none !important
+#kriteria_chart-mobile
+	display: initial !important
+#sub_chart-mobile
+	display: initial !important

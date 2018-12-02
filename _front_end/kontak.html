@@ -64,31 +64,37 @@
 			<span class="bottom"></span>
 		</div>
 		<section class="margin-top-4">
-			<div class="columns padded">
+			<div class="columns padded-not-mobile multiline">
 				<section class="column mobile-12 desktop-6">
 					<h1 class="section-title">LOKASI KAMI</h1>
 					<div id="google-maps"></div>
 				</section>
 				<section class="column mobile-12 desktop-6">
-					<h1 class="section-title">TINGGALKAN PESAN!</h1>
-					<div class="form-input">
-						<input type="text" name="nama" placeholder="Nama Anda" autofocus="autofocus" required="required">
-					</div>
-					<div class="form-input margin-top-2 icon-left">
-						<span>+62</span>
-						<input type="number" name="nomor" placeholder="Nomor Handphone Anda" required="required">
-					</div>
-					<div class="form-input margin-top-2">
-						<input type="email" name="email" placeholder="Email Anda" required="required">
-					</div>
-					<div class="form-input margin-top-2">
-						<textarea name="komentar" placeholder="Komentar anda" required="required" rows="4"></textarea>
-					</div>
-					<div class="margin-top-2">
-						<button class="button large dark" type="submit" value="submit" name="submit">
-							Kirim
-						</button>
-					</div>
+					<form id="kontak-form">
+						<h1 class="section-title">TINGGALKAN PESAN!</h1>
+						<div class="form-input">
+							<input type="text" name="nama" placeholder="Nama Anda" autofocus="autofocus" required="required">
+						</div>
+						<div class="form-input margin-top-2 icon-left">
+							<span>+62</span>
+							<input type="number" name="nomor" placeholder="Nomor Handphone Anda" minlength="10" maxlength="12" required="required">
+						</div>
+						<div class="form-input margin-top-2">
+							<input type="email" name="email" placeholder="Email Anda" required="required">
+						</div>
+						<div class="form-input margin-top-2">
+							<textarea name="komentar" placeholder="Komentar anda" required="required" rows="4"></textarea>
+						</div>
+						<div class="form-input margin-top-2">
+							<input type="hidden" id="captcha_required" name="captcha" value="1" required="required">
+							<div class="g-recaptcha" data-callback="capcha_filled" data-expired-callback="capcha_expired" data-sitekey="6Lduk3YUAAAAAME-tj16Wu216Qg25eDdezk_5ZeX"></div>
+						</div>
+						<div class="margin-top-2">
+							<button class="button large dark" type="submit" value="submit" name="submit">
+								Kirim
+							</button>
+						</div>
+					</form>
 				</section>
 			</div>
 		</section>
@@ -211,6 +217,9 @@
 						<div class="column mobile-3 tablet-2 desktop-3">
 							<a href="#"><img alt="..." src="./assets/img/tumblr.png" /></a>
 						</div>
+						<div class="column mobile-3 tablet-2 desktop-3">
+							<a href="#"><img alt="..." src="./assets/img/linkedin.png" /></a>
+						</div>
 					</div>
 				</section>
 				<section class="column mobile-12 invert copyright">
@@ -219,9 +228,16 @@
 			</div>
 		</footer>
 	</main>
+	<script src='https://www.google.com/recaptcha/api.js'></script>
 	<script type="text/javascript" src="./assets/js/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="./assets/js/slick.min.js"></script>
 	<script type="text/javascript">
+		function capcha_filled() {
+			document.getElementById('captcha_required').value = 1;
+		}
+		function capcha_expired() {
+			document.getElementById('captcha_required').value = 0;
+		}
 		function initMap() {
 			var uluru = {lat: -0.498146, lng: 117.156713};
 			var map = new google.maps.Map(document.getElementById('google-maps'), {

@@ -3,8 +3,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class SmkProfilModel extends Model {
-	protected $table = 'tb_profil';
+class SmkKontakModel extends Model {
+	protected $table = 'tb_bukutamu';
 	protected $primaryKey = 'id';
 	protected $guarded = [];
 }

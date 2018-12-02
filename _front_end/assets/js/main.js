@@ -272,10 +272,38 @@ $(function () {
 			$('#keahlian section.'+data).removeClass('hidden')
 		}
 	});
-	$(window).on('load', function(event) {
+	function sendComment(data) {
+		alert('comment sudah dikirim');
+	}
+	$(document).on('submit', '#kontak-form', function(event) {
 		event.preventDefault();
-		$('body, html').delay(300).animate({scrollTop: 0}, 0);
-		$('#pre-loader').delay(300).animate({top: '-100vh'}, 500);
+		var captcha_required = $('#captcha_required').val();
+		if (captcha_required == 0) {
+			alert('Please fill the captcha!');
+			return false;
+		} else {
+			var nama = $('#kontak-form input[name=nama]').val();
+			var nomor = $('#kontak-form input[name=nomor]').val();
+			var email = $('#kontak-form input[name=email]').val();
+			var komentar = $('#kontak-form textarea[name=komentar]').val();
+			$.ajax({
+				url: apiBaseUrl+'smk/inputkontak/',
+				type: 'POST',
+				data: {
+					nama: nama,
+					nomor: nomor,
+					email: email,
+					komentar: komentar,
+				},
+			})
+			.done(function(data) {
+				console.log('success');
+				window.location.href = "./kontak.html";
+			})
+			.fail(function() {
+				console.log("error");
+			});
+		}
 	});
 	$(document).ready(function () {
 		var link = $('nav .left ul').html() + $('nav .right ul').html();
@@ -308,12 +336,12 @@ $(function () {
 						}
 						if (el.tipe_konten == 'berita') {
 							if (numBerita < 4) {
-								$('.slider.for-1').append('<div><img src="'+gambar+'" /><div class="caption"><h3><a href="#">'+el.judul+'</a></h3></div></div>');
+								$('.slider.for-1').append('<div><img src="'+gambar+'" /><div class="caption"><h3><a href="./berita-lebih.html?id='+el.id+'">'+el.judul+'</a></h3></div></div>');
 							}
 							numBerita++;
 						} else if (el.tipe_konten == 'artikel' || el.tipe_konten == 'kreasi') {
 							if (numArtikel < 4) {
-								$('.slider.for-2').append('<div><img src="'+gambar+'" /><div class="caption"><h3><a href="#">'+el.judul+'</a></h3></div></div>');
+								$('.slider.for-2').append('<div><img src="'+gambar+'" /><div class="caption"><h3><a href="./berita-lebih.html?id='+el.id+'">'+el.judul+'</a></h3></div></div>');
 							}
 							numArtikel++;
 						}
@@ -335,6 +363,11 @@ $(function () {
 				$('#berita .section-sub-title').addClass('hidden');
 				$('#artikel .section-sub-title').addClass('hidden');
 				$('#kreasi .section-sub-title').addClass('hidden');
+			});
+			$(window).on('load', function(event) {
+				event.preventDefault();
+				$('body, html').delay(300).animate({scrollTop: 0}, 0);
+				$('#pre-loader').delay(300).animate({top: '-100vh'}, 500);
 			});
 		} else if (title == 'galeri') {
 			var record = [

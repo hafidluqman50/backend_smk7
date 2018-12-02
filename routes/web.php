@@ -15,6 +15,7 @@
 //     return $router->app->version();
 // });
 $router->post('/login',['as'=>'login-post','uses'=>'AuthController@auth']);
+// $app->post('login', ['middleware' => 'auth', 'uses' => 'UsersController@authenticate']);
 $router->group(['prefix'=>'smk','middleware'=>'cros'],function() use ($router){
 
 	$router->get('/getkonten','SmkKontenController@index');
@@ -24,6 +25,5 @@ $router->group(['prefix'=>'smk','middleware'=>'cros'],function() use ($router){
 
 	$router->get('/getprofil','SmkProfilController@index');
 	
-});
-$router->group(['prefix'=>'input','middleware'=>'cros'],function() use ($router){
+	$router->post('/inputkontak','SmkKontakController@input');
 });

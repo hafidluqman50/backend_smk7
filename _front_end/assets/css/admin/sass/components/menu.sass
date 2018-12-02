@@ -1,0 +1,39 @@
+.menu
+  font-size: $size-normal
+
+.menu-list
+  line-height: 1.25
+  +tablet
+    &.is-mobile-only
+      display: none
+  a
+    border-radius: $radius-small
+    color: $text
+    display: block
+    padding: 0.5em 0.75em
+    &:hover
+      background-color: $background
+      color: $link
+    // Modifiers
+    &.is-active
+      background-color: $link
+      color: $link-invert
+  li
+    ul
+      border-left: 1px solid $border
+      display: none
+      margin: 0.75em
+      padding-left: 0.75em
+
+.menu-label
+  color: $text-light
+  font-size: 0.8em
+  letter-spacing: 0.1em
+  text-transform: uppercase
+  +tablet
+    &.is-mobile-only
+      display: none
+  &:not(:first-child)
+    margin-top: 1em
+  &:not(:last-child)
+    margin-bottom: 1em

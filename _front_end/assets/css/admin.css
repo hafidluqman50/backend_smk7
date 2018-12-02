@@ -1,0 +1,14 @@
+@import "admin/bulma.min.css";
+body > aside {
+	overflow-y: auto;
+}
+body > main {
+	min-height: 100vh;
+	display: flex !important;
+	flex-wrap: wrap;
+	align-content: space-between;
+}
+body > main > .columns,
+body > main > footer {
+	width: 100%;
+}

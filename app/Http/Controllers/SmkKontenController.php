@@ -44,7 +44,7 @@ class SmkKontenController extends Controller {
 				$fileName = $size.date("Ymd").md5(explode('.', $file->getClientOriginalName())[0]).$ext;
 				$file->move('uploads/konten/', $fileName);
 			} else {
-				echo "gagal bang";
+				echo "Gagal.";
 				return redirect('http://localhost/smkn7/_front_end/');
 			}
 		}
